@@ -5,6 +5,7 @@ import supportEvents from './apiEventsLists/geoObject';
 import {eventsDecorator} from './utils/decorators';
 
 import MarkerLayout from './MarkerLayout'
+import BalloonLayout from './BalloonLayout'
 
 class MapMarker extends Component {
     static propTypes = {
@@ -75,17 +76,10 @@ class MapMarker extends Component {
                 if (component.type === MarkerLayout) {
                     this._setupMarkerLayout(component);
                 }
-                
-                // switch (component.type.name) {
-                //     case 'MarkerLayout':
-                //         this._setupMarkerLayout(component);
-                //         break;
-                //     case 'BalloonLayout':
-                //         this._setupBalloonLayout(component);
-                //         break;
-                //     default:
-                //         break;
-                // }
+
+                if (component.type === BalloonLayout) {
+                    this._setupBalloonLayout(component);
+                }
             });
     }
 
